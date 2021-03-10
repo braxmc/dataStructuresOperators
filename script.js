@@ -11,11 +11,6 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  order: function(starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
-  },
-
   openingHours: {
     thu: {
       open: 12,
@@ -31,37 +26,75 @@ const restaurant = {
     },
   },
 
+  order: function(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]]
+  },
+
+  orderDelivery: function({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
+    console.log(`Order recieved ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  }
 };
-const arr = [2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
 
-const [x, y, z] = arr;
-console.log(x, y, z)
-console.log(arr)
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,  
+});
 
-let [first, , second] = restaurant.categories;
-console.log(first, second);
+restaurant.orderDelivery({
+  address: 'Via del sole, 21',
+  mainIndex: 2,
+})
 
-const temp = first;
-first = second;
-second = temp;
-console.log(first, second);
+const {name, openingHours, categories} = restaurant;
+console.log(name, openingHours, categories);
+// RENAMING VARIABLE NAMES
+const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+console.log(restaurantName, hours, tags);
+// Default values
+const {menu = [], starterMenu: starters = []} = restaurant;
+console.log(menu, starters);
+// Mutating variables
+let a = 111;
+let b = 999;
+const obj = {a: 23, b: 10, c: 69};
+({a, b} = obj);
+console.log(a, b);
+// Nested Objects
+const {fri: {open, close}} = openingHours;
+console.log(open, close);
 
-[first, second] = [second, first]
-console.log(first, second)
+// const arr = [2, 3, 4];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
 
-const [starter, main] = restaurant.order(2, 0);
-console.log(starter, main)
+// const [x, y, z] = arr;
+// console.log(x, y, z)
+// console.log(arr)
 
-const nested = [2, 4, [5, 6]];
-// const [i, , j] = nested;
-// console.log(i, j);
+// let [first, , second] = restaurant.categories;
+// console.log(first, second);
 
-const [i, , [j, k]] = nested
-console.log(i, j, k);
+// const temp = first;
+// first = second;
+// second = temp;
+// console.log(first, second);
 
-// default values
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+// [first, second] = [second, first]
+// console.log(first, second)
+
+// const [starter, main] = restaurant.order(2, 0);
+// console.log(starter, main)
+
+// const nested = [2, 4, [5, 6]];
+// // const [i, , j] = nested;
+// // console.log(i, j);
+
+// const [i, , [j, k]] = nested
+// console.log(i, j, k);
+
+// // default values
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r);
