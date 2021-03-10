@@ -32,38 +32,82 @@ const restaurant = {
 
   orderDelivery: function({starterIndex = 1, mainIndex = 0, time = '20:00', address}) {
     console.log(`Order recieved ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  },
+
+  orderPasta: function(ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}`);
   }
 };
 
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Via del sole, 21',
-  mainIndex: 2,
-  starterIndex: 2,  
-});
 
-restaurant.orderDelivery({
-  address: 'Via del sole, 21',
-  mainIndex: 2,
-})
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+const goodNewArr = [1, 2, ...arr];
+console.log(goodNewArr);
+console.log(...arr);
 
-const {name, openingHours, categories} = restaurant;
-console.log(name, openingHours, categories);
-// RENAMING VARIABLE NAMES
-const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
-console.log(restaurantName, hours, tags);
-// Default values
-const {menu = [], starterMenu: starters = []} = restaurant;
-console.log(menu, starters);
-// Mutating variables
-let a = 111;
-let b = 999;
-const obj = {a: 23, b: 10, c: 69};
-({a, b} = obj);
-console.log(a, b);
-// Nested Objects
-const {fri: {open, close}} = openingHours;
-console.log(open, close);
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+const str = 'Brax';
+const letters = [...str, ' ', 's'];
+console.log(letters);
+console.log(...str);
+console.log(str);
+// console.log(`${...string}`); ||| BAD WILL NOT WORK
+
+
+// const ingredients = [prompt('Let\'s make pasta! Ingredient 1?'), prompt('Let\'s make pasta! Ingredient 2?'), prompt('Let\'s make pasta! Ingredient 3?')];
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+// OBJECTS
+const newRestaurant = {foundedIn: 1996, ...restaurant, founder: 'Brax'}
+console.log(newRestaurant);
+
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'McCrib';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via del sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2,  
+// });
+
+// restaurant.orderDelivery({
+//   address: 'Via del sole, 21',
+//   mainIndex: 2,
+// })
+
+// const {name, openingHours, categories} = restaurant;
+// console.log(name, openingHours, categories);
+// // RENAMING VARIABLE NAMES
+// const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+// console.log(restaurantName, hours, tags);
+// // Default values
+// const {menu = [], starterMenu: starters = []} = restaurant;
+// console.log(menu, starters);
+// // Mutating variables
+// let a = 111;
+// let b = 999;
+// const obj = {a: 23, b: 10, c: 69};
+// ({a, b} = obj);
+// console.log(a, b);
+// // Nested Objects
+// const {fri: {open, close}} = openingHours;
+// console.log(open, close);
 
 // const arr = [2, 3, 4];
 // const a = arr[0];
