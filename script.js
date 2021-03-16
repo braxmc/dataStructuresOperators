@@ -6,8 +6,6 @@ const flights =
 
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-
-
  const openingHours = {
     [days[3]]: {
       open: 12,
@@ -55,7 +53,37 @@ const restaurant = {
   }
 };
 
-console.log(restaurant);
+console.log(openingHours);
+
+if(restaurant.openingHours && restaurant.openingHours.mon) 
+console.log(resaurant.openingHours.mon.open);
+
+// WITH OPTIONAL CHAINING
+console.log(restaurant.openingHours.mon?.open); // shows undefined
+console.log(restaurant.openingHours?.Thursday?.open); // shows 12
+// ?'s check to see if it exists
+
+const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+for(const day of weekDays) {
+  console.log(day);
+  const open = restaurant.openingHours[day]?.open || 'N/A'
+  const close = restaurant.openingHours[day]?.close || 'N/A'
+  console.log(`on ${day}, we open at ${open} and close at ${close}`);
+}
+
+// OPTIONAL CHAINING WITH METHODS
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// OPTIONAL CHAINING WITH ARRAYS
+const arr = [
+  {name: 'Brax', age: 24, gender: 'male'}
+];
+console.log(arr[0]?.name ?? 'Array element doesnt exist'); // shows 'Brax'
+console.log(arr[1]?.age ?? 'Array element doesnt exist'); // doesnt exist
+
+// ---------------------------------------------
+// if(restaurant.openingHours.Thursday) console.log(restaurant.openingHours.Thursday.open);
 
 // THE FOR-OF LOOP
 // const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
