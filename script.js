@@ -45,6 +45,15 @@ const restaurant = {
   }
 };
 
+// THE FOR-OF LOOP
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// for(const item of menu) console.log(item);
+
+// for(const item of menu.entries()) console.log(`${item[0] + 1}: ${item[1]}`);
+
+// for(const [i, el] of menu.entries()) console.log(`${i + 1}: ${el}`);
+
 // restaurant.orderPizza('pepperoni', 'beef', 'bacon')
 // restaurant.orderPizza('cheese')
 
@@ -286,39 +295,41 @@ const game = {
   },
 };
 
-// 1. 
-const [players1, players2] = game.players;
-console.log(players1, players2);
+// CODING CHALLANGE 1
 
-// 2.
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
+// // 1. 
+// const [players1, players2] = game.players;
+// console.log(players1, players2);
 
-// 3.
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+// // 2.
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
 
-// 4.
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
-console.log(players1Final);
+// // 3.
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
 
-// 5.
-// const team1 = game.odds.team1;
-// console.log(team1);
+// // 4.
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
+// console.log(players1Final);
 
-const {odds: {team1, x: draw, team2}} = game;
-console.log(team1, draw, team2);
+// // 5.
+// // const team1 = game.odds.team1;
+// // console.log(team1);
 
-// 6.
-const printGoals = function(...players) {
-  console.log(`${players.length} goals were scored`);
-  console.log(...players);
-}
+// const {odds: {team1, x: draw, team2}} = game;
+// console.log(team1, draw, team2);
 
-printGoals('Davies', 'Muller', 'Lewandowski');
-printGoals('Brax', 'Mom');
-printGoals(...game.scored);
+// // 6.
+// const printGoals = function(...players) {
+//   console.log(`${players.length} goals were scored`);
+//   console.log(`players who scored ${players}`);
+// }
 
-// 7.
-team1 < team2 && console.log('Team 1 is more likely to win');
-team1 > team2 && console.log('Team 2 is more likely to win');
+// printGoals('Davies', 'Muller', 'Lewandowski');
+// printGoals('Brax', 'Mom');
+// printGoals(...game.scored);
+
+// // 7.
+// team1 < team2 && console.log('Team 1 is more likely to win');
+// team1 > team2 && console.log('Team 2 is more likely to win');
