@@ -53,34 +53,44 @@ const restaurant = {
   }
 };
 
-console.log(openingHours);
+const properties = Object.keys(openingHours);
+console.log(properties);
 
-if(restaurant.openingHours && restaurant.openingHours.mon) 
-console.log(resaurant.openingHours.mon.open);
+let openStr = `we are open ${properties.length} days a week on: `;
+console.log(openStr);
 
-// WITH OPTIONAL CHAINING
-console.log(restaurant.openingHours.mon?.open); // shows undefined
-console.log(restaurant.openingHours?.Thursday?.open); // shows 12
-// ?'s check to see if it exists
-
-const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-for(const day of weekDays) {
+for(const day of Object.keys(openingHours)) {
   console.log(day);
-  const open = restaurant.openingHours[day]?.open || 'N/A'
-  const close = restaurant.openingHours[day]?.close || 'N/A'
-  console.log(`on ${day}, we open at ${open} and close at ${close}`);
 }
 
-// OPTIONAL CHAINING WITH METHODS
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
-console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+// OPTIONAL CHAINING
+// if(restaurant.openingHours && restaurant.openingHours.mon) 
+// console.log(resaurant.openingHours.mon.open);
 
-// OPTIONAL CHAINING WITH ARRAYS
-const arr = [
-  {name: 'Brax', age: 24, gender: 'male'}
-];
-console.log(arr[0]?.name ?? 'Array element doesnt exist'); // shows 'Brax'
-console.log(arr[1]?.age ?? 'Array element doesnt exist'); // doesnt exist
+// //same result as if statement above but with optional chaining
+
+// console.log(restaurant.openingHours.mon?.open); // shows undefined
+// console.log(restaurant.openingHours?.Thursday?.open); // shows 12
+// // ?'s check to see if it exists
+
+// const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+// for(const day of weekDays) {
+//   console.log(day);
+//   const open = restaurant.openingHours[day]?.open || 'N/A'
+//   const close = restaurant.openingHours[day]?.close || 'N/A'
+//   console.log(`on ${day}, we open at ${open} and close at ${close}`);
+// }
+
+// // OPTIONAL CHAINING WITH METHODS
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// // OPTIONAL CHAINING WITH ARRAYS
+// const arr = [
+//   {name: 'Brax', age: 24, gender: 'male'}
+// ];
+// console.log(arr[0]?.name ?? 'Array element doesnt exist'); // shows 'Brax'
+// console.log(arr[1]?.age ?? 'Array element doesnt exist'); // doesnt exist
 
 // ---------------------------------------------
 // if(restaurant.openingHours.Thursday) console.log(restaurant.openingHours.Thursday.open);
