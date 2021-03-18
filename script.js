@@ -396,8 +396,12 @@ for(const i in odds) {
 }
 
 // Bonus
-
-console.log(Object.values(game.scored));
+let scorers = {};
+for(const player of game.scored) {
+  console.log(scorers);
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+  console.log(`${player}: ${scorers[player]}`);
+}
 
 // CODING CHALLANGE 1
 
