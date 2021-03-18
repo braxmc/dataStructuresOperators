@@ -53,15 +53,31 @@ const restaurant = {
   }
 };
 
-const properties = Object.keys(openingHours);
-console.log(properties);
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-let openStr = `we are open ${properties.length} days a week on: `;
-console.log(openStr);
+// let openStr = `we are open ${properties.length} days a week on: `;
+// for(const day of properties) {
+//   openStr += `${day}, `
+// }
+// console.log(openStr);
 
-for(const day of Object.keys(openingHours)) {
-  console.log(day);
-}
+// // Property Values
+
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// // Entire Object
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// for(const [day, {open, close}] of entries) {
+//   console.log(`On ${day} we open at ${open} and close at ${close}`);
+// }
+
+// for(const day of Object.keys(openingHours)) {
+//   console.log(day);
+// }
 
 // OPTIONAL CHAINING
 // if(restaurant.openingHours && restaurant.openingHours.mon) 
@@ -107,7 +123,7 @@ for(const day of Object.keys(openingHours)) {
 // restaurant.orderPizza('pepperoni', 'beef', 'bacon')
 // restaurant.orderPizza('cheese')
 
-// Rest
+// REST
 // const arr = [1, 2, ...[3, 4]];
 
 // const [a, b, ...others] = [1, 2, 3, 4, 5];
@@ -344,6 +360,44 @@ const game = {
     team2: 6.5,
   },
 };
+
+// CODING CHALLANGE 2
+
+// 1.
+for(const [i, player] of game.scored.entries()) console.log(`Goal ${i + 1}: ${player}`);
+
+// 2.
+const odds = game.odds;
+let average = 0;
+for(const result in odds) {
+  console.log(result, odds[result]);
+  average += odds[result]
+}
+average /= 3
+console.log(average);
+
+// another way
+let avg = 0;
+for(const res of Object.values(game.odds)) {
+  avg += res;
+  console.log(avg);
+}
+avg /= 3;
+console.log(avg);
+
+// 3.
+for(const i in odds) {
+  console.log(i, odds[i]);
+  if(i === 'team1' || i === 'team2') {
+    console.log(`Odd of victory ${game[i]}: ${odds[i]}`);
+  } else {
+    console.log(`Odd of draw: ${odds[i]}`);
+  }
+}
+
+// Bonus
+
+console.log(Object.values(game.scored));
 
 // CODING CHALLANGE 1
 
