@@ -53,6 +53,35 @@ const restaurant = {
   }
 };
 
+// SETS
+// will not show duplicates, and sets are iterable
+// there are no index's in sets, cant pull data from set
+const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
+console.log(ordersSet);
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread')
+ordersSet.add('Garlic Bread')
+// ordersSet.clear(ordersSet) THIS WILL CLEAR THE ENTIRE SET
+ordersSet.delete('Risotto')
+console.log(ordersSet);
+
+for(const loop of ordersSet) console.log(loop);
+
+console.log(new Set('Brax'));
+
+// example of turning array into a set to get rid of duplicates
+const staff = ['Chef', 'Waiter', 'Chef', 'Host', 'Manager', 'Host', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(new Set(['Chef', 'Waiter', 'Chef', 'Host', 'Manager', 'Host', 'Waiter']).size)
+
+console.log(new Set('Braxton').size);
+
+
+// ----------------------------------------------------------
+
 // const properties = Object.keys(openingHours);
 // console.log(properties);
 
@@ -361,47 +390,47 @@ const game = {
   },
 };
 
-// CODING CHALLANGE 2
+// // CODING CHALLANGE 2
 
-// 1.
-for(const [i, player] of game.scored.entries()) console.log(`Goal ${i + 1}: ${player}`);
+// // 1.
+// for(const [i, player] of game.scored.entries()) console.log(`Goal ${i + 1}: ${player}`);
 
-// 2.
-const odds = game.odds;
-let average = 0;
-for(const result in odds) {
-  console.log(result, odds[result]);
-  average += odds[result]
-}
-average /= 3
-console.log(average);
+// // 2.
+// const odds = game.odds;
+// let average = 0;
+// for(const result in odds) {
+//   console.log(result, odds[result]);
+//   average += odds[result]
+// }
+// average /= 3
+// console.log(average);
 
-// another way
-let avg = 0;
-for(const res of Object.values(game.odds)) {
-  avg += res;
-  console.log(avg);
-}
-avg /= 3;
-console.log(avg);
+// // another way
+// let avg = 0;
+// for(const res of Object.values(game.odds)) {
+//   avg += res;
+//   console.log(avg);
+// }
+// avg /= 3;
+// console.log(avg);
 
-// 3.
-for(const i in odds) {
-  console.log(i, odds[i]);
-  if(i === 'team1' || i === 'team2') {
-    console.log(`Odd of victory ${game[i]}: ${odds[i]}`);
-  } else {
-    console.log(`Odd of draw: ${odds[i]}`);
-  }
-}
+// // 3.
+// for(const i in odds) {
+//   console.log(i, odds[i]);
+//   if(i === 'team1' || i === 'team2') {
+//     console.log(`Odd of victory ${game[i]}: ${odds[i]}`);
+//   } else {
+//     console.log(`Odd of draw: ${odds[i]}`);
+//   }
+// }
 
-// Bonus
-let scorers = {};
-for(const player of game.scored) {
-  console.log(scorers);
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-  console.log(`${player}: ${scorers[player]}`);
-}
+// // Bonus
+// let scorers = {};
+// for(const player of game.scored) {
+//   console.log(scorers);
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+//   console.log(`${player}: ${scorers[player]}`);
+// }
 
 // CODING CHALLANGE 1
 
