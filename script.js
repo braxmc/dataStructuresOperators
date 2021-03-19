@@ -53,31 +53,98 @@ const restaurant = {
   }
 };
 
-// SETS
-// will not show duplicates, and sets are iterable
-// there are no index's in sets, cant pull data from set
-const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
-console.log(ordersSet);
-console.log(ordersSet.size);
-console.log(ordersSet.has('Pizza'));
-console.log(ordersSet.has('Bread'));
-ordersSet.add('Garlic Bread')
-ordersSet.add('Garlic Bread')
-// ordersSet.clear(ordersSet) THIS WILL CLEAR THE ENTIRE SET
-ordersSet.delete('Risotto')
-console.log(ordersSet);
+// // MAP ITERATION
 
-for(const loop of ordersSet) console.log(loop);
+// const question = new Map([
+//   ['queston', 'What is the best programming language in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'Javascript'],
+//   ['Correct', 3],
+//   [true, 'Correct!'],
+//   [false, 'Try Again!']
+// ]);
+// console.log(question);
 
-console.log(new Set('Brax'));
+// // convert object to map
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
 
-// example of turning array into a set to get rid of duplicates
-const staff = ['Chef', 'Waiter', 'Chef', 'Host', 'Manager', 'Host', 'Waiter'];
-const staffUnique = [...new Set(staff)];
-console.log(staffUnique);
-console.log(new Set(['Chef', 'Waiter', 'Chef', 'Host', 'Manager', 'Host', 'Waiter']).size)
+// console.log(question);
+// for(const [key, value] of question) {
+//   if(typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// }
+// // const answer = Number(prompt('Your answer'))
+// const answer = 3;
+// // console.log(answer);
 
-console.log(new Set('Braxton').size);
+// // checks to see if it's correct, then pulls true or false value
+// console.log(question.get(question.get('Correct') === answer))
+
+// // convert map to array
+// console.log([...question]);
+// console.log(question.entries());
+// console.log(...question.keys());
+// console.log(...question.values());
+
+// -------------------------------------------------------
+
+// // MAPS: fundamentals
+// // uses two arguments, key & value 
+// const rest = new Map();
+// rest.set('name', 'Classico Italiano');
+// rest.set(1, 'Firenze, Italy');
+// rest.set(2, 'Lisbon, Portugal');
+// rest.set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic']).set('open', 8).set('close', 21).set(true, 'We are open!').set(false, 'We are closed!')
+// console.log(rest);
+// console.log(rest.get(true));
+// console.log(rest.get(1));
+
+// const time = 20;
+// console.log(rest.get(time >= rest.get('open') && time < rest.get('close')));
+
+// console.log(rest.has('categories'));
+// rest.delete(2);
+// console.log(rest);
+// console.log(rest.size);
+// rest.clear();
+// // console.log(rest); Clears the entire map
+
+// // rest.set([1,2], 'Test') you can use an array as a key
+// const arr = [1, 2];
+// rest.set(arr, 'test')
+// rest.set(document.querySelector('h1'), 'Heading')
+// console.log(rest);
+// console.log(rest.get(arr));
+
+// --------------------------------------------------------
+
+// // SETS
+// // will not show duplicates, and sets are iterable
+// // there are no index's in sets, cant pull data from set
+// const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Pizza']);
+// console.log(ordersSet);
+// console.log(ordersSet.size);
+// console.log(ordersSet.has('Pizza'));
+// console.log(ordersSet.has('Bread'));
+// ordersSet.add('Garlic Bread')
+// ordersSet.add('Garlic Bread')
+// // ordersSet.clear(ordersSet) THIS WILL CLEAR THE ENTIRE SET
+// ordersSet.delete('Risotto')
+// console.log(ordersSet);
+
+// for(const loop of ordersSet) console.log(loop);
+
+// console.log(new Set('Brax'));
+
+// // example of turning array into a set to get rid of duplicates
+// const staff = ['Chef', 'Waiter', 'Chef', 'Host', 'Manager', 'Host', 'Waiter'];
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
+// console.log(new Set(['Chef', 'Waiter', 'Chef', 'Host', 'Manager', 'Host', 'Waiter']).size)
+
+// console.log(new Set('Braxton').size);
 
 
 // ----------------------------------------------------------
