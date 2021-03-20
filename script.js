@@ -457,7 +457,45 @@ const game = {
   },
 };
 
-// // CODING CHALLANGE 2
+// CODING CHALLENGE 3
+
+const gameEvents = new Map([
+  [17, 'Goal'],
+  [36, 'Substitution'],
+  [47, 'Goal'],
+  [61, 'Substitution'],
+  [64, 'Yellow Card'],
+  [69, 'Red Card'],
+  [70, 'Substitution'],
+  [72, 'Substitution'],
+  [76, 'Goal'],
+  [80, 'Goal'],
+  [92, 'Yellow Card']
+])
+
+// 1.
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+// 2.
+gameEvents.delete(64)
+console.log(gameEvents);
+
+// 3.
+const time = [...gameEvents.keys()].pop(); // .pop() returns last of array
+console.log(time);
+console.log(`An event happened, on average, ${time / gameEvents.size} every minutes`);
+
+// 4.
+for(const [key, value] of gameEvents) {
+  if(key < 45) {
+    console.log(`[FIRST HALF] ${key}: ${value}`);
+  } else {
+    console.log(`[SECOND HALF] ${key}: ${value}`);
+  }
+}
+
+// // CODING CHALLENGE 2
 
 // // 1.
 // for(const [i, player] of game.scored.entries()) console.log(`Goal ${i + 1}: ${player}`);
