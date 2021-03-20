@@ -52,6 +52,56 @@ const restaurant = {
     console.log(`The main ingredient is ${mainIngredient}, the other ingredient(s) are ${otherIngredients}`);
   }
 };
+// ----------------------------------------------------------
+// WORKING WITH STRINGS 
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+// these work the same way
+console.log(plane[0]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Air'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // adding +1 it gets rid of the space in front
+
+console.log(airline.slice(-3)); // this starts and the end and counts in
+
+console.log(airline.slice(1, -1)); // this takes off the first and last letter
+
+const checkMiddleSeat = function(seat) {
+  // 11A, 11B, 11C -- 11D, 11E, 11F, B and E are middle seats
+  const s = seat.slice(seat.indexOf(-1));
+  if(s == 'B' || s == 'E') {
+    console.log('You got a middle seat!');
+  } else {
+    console.log('You got lucky');
+  }
+}
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('7E');
+
+// considered an object
+console.log(new String('Brax'));
+console.log(typeof new String('Brax'));
+
+// makes it a string again when methods are called on it
+console.log(new String('Brax'));
+console.log(typeof new String('Braxt').slice(-1));
+console.log(typeof new String('Brax').toLowerCase());
+// ----------------------------------------------------------
 
 // // MAP ITERATION
 
@@ -457,43 +507,43 @@ const game = {
   },
 };
 
-// CODING CHALLENGE 3
+// // CODING CHALLENGE 3
 
-const gameEvents = new Map([
-  [17, 'Goal'],
-  [36, 'Substitution'],
-  [47, 'Goal'],
-  [61, 'Substitution'],
-  [64, 'Yellow Card'],
-  [69, 'Red Card'],
-  [70, 'Substitution'],
-  [72, 'Substitution'],
-  [76, 'Goal'],
-  [80, 'Goal'],
-  [92, 'Yellow Card']
-])
+// const gameEvents = new Map([
+//   [17, 'Goal'],
+//   [36, 'Substitution'],
+//   [47, 'Goal'],
+//   [61, 'Substitution'],
+//   [64, 'Yellow Card'],
+//   [69, 'Red Card'],
+//   [70, 'Substitution'],
+//   [72, 'Substitution'],
+//   [76, 'Goal'],
+//   [80, 'Goal'],
+//   [92, 'Yellow Card']
+// ])
 
-// 1.
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+// // 1.
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-// 2.
-gameEvents.delete(64)
-console.log(gameEvents);
+// // 2.
+// gameEvents.delete(64)
+// console.log(gameEvents);
 
-// 3.
-const time = [...gameEvents.keys()].pop(); // .pop() returns last of array
-console.log(time);
-console.log(`An event happened, on average, ${time / gameEvents.size} every minutes`);
+// // 3.
+// const time = [...gameEvents.keys()].pop(); // .pop() returns last of array
+// console.log(time);
+// console.log(`An event happened, on average, ${time / gameEvents.size} every minutes`);
 
-// 4.
-for(const [key, value] of gameEvents) {
-  if(key < 45) {
-    console.log(`[FIRST HALF] ${key}: ${value}`);
-  } else {
-    console.log(`[SECOND HALF] ${key}: ${value}`);
-  }
-}
+// // 4.
+// for(const [key, value] of gameEvents) {
+//   if(key < 45) {
+//     console.log(`[FIRST HALF] ${key}: ${value}`);
+//   } else {
+//     console.log(`[SECOND HALF] ${key}: ${value}`);
+//   }
+// }
 
 // // CODING CHALLENGE 2
 
