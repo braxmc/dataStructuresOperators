@@ -52,55 +52,124 @@ const restaurant = {
     console.log(`The main ingredient is ${mainIngredient}, the other ingredient(s) are ${otherIngredients}`);
   }
 };
-// ----------------------------------------------------------
-// WORKING WITH STRINGS 
+// ---------------------------------------------------------
 
 const airline = 'TAP Air Portugal';
-const plane = 'A320';
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
 
-// these work the same way
-console.log(plane[0]);
-console.log('B737'[0]);
+//Fix capitalization in name
+const passenger = 'bRaXtoN'; // should be Braxton
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1)
+console.log(passengerCorrect);
 
-console.log(airline.length);
-console.log('B737'.length);
+function fixName(name) {
+  let lower = name.toLowerCase();
+  let fixed = name[0].toUpperCase() + lower.slice(1);
+  console.log(fixed);
+}
+fixName('braXtoN')
+fixName('dianA')
+fixName('mCcLeLlAn')
 
-console.log(airline.indexOf('r'));
-console.log(airline.lastIndexOf('r'));
-console.log(airline.indexOf('Air'));
+// Comparing email
+const email = 'hello@brax.io';
+const loginEmail = '   Hello@Brax.Io \n';
 
-console.log(airline.slice(4));
-console.log(airline.slice(4, 7));
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim() // takes out spaces or dead space
 
-console.log(airline.slice(0, airline.indexOf(' ')));
+const fixedEmail = loginEmail.toLowerCase().trim();
 
-console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // adding +1 it gets rid of the space in front
+console.log(fixedEmail);
+console.log(email === fixedEmail);
 
-console.log(airline.slice(-3)); // this starts and the end and counts in
+// replacing in strings
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
 
-console.log(airline.slice(1, -1)); // this takes off the first and last letter
+const announcement = 'All passengers come to boarding door 23, boarding door 23!'
 
-const checkMiddleSeat = function(seat) {
-  // 11A, 11B, 11C -- 11D, 11E, 11F, B and E are middle seats
-  const s = seat.slice(seat.indexOf(-1));
-  if(s == 'B' || s == 'E') {
-    console.log('You got a middle seat!');
+console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'));
+console.log(announcement.replace(/door/g, 'gate')); // this uses general expression, the g stands for 'global'
+
+// Booleans
+const plane = 'Airbus A320neo';
+console.log(plane.includes('A320')); // true
+console.log(plane.includes('Boeing')); // false
+console.log(plane.startsWith('Z')); // false
+console.log(plane.startsWith('Air')); // true
+
+if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+// Practice exercise
+const checkBags = function(items) {
+  const baggage = items.toLowerCase();
+  if(baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You cannot fly sorry!');
   } else {
-    console.log('You got lucky');
+    console.log('You may board the plane');
   }
 }
-checkMiddleSeat('11B');
-checkMiddleSeat('23C');
-checkMiddleSeat('7E');
+checkBags('I have a laptop, some food, and a pocket KNIFE');
+checkBags('I have some socks and a cemera');
+checkBags('Got some snacks and a gun for protection');
 
-// considered an object
-console.log(new String('Brax'));
-console.log(typeof new String('Brax'));
+// ----------------------------------------------------------
+// // WORKING WITH STRINGS Part 1
 
-// makes it a string again when methods are called on it
-console.log(new String('Brax'));
-console.log(typeof new String('Braxt').slice(-1));
-console.log(typeof new String('Brax').toLowerCase());
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
+
+// // these work the same way
+// console.log(plane[0]);
+// console.log('B737'[0]);
+
+// console.log(airline.length);
+// console.log('B737'.length);
+
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Air'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+
+// console.log(airline.slice(0, airline.indexOf(' ')));
+
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // adding +1 it gets rid of the space in front
+
+// console.log(airline.slice(-3)); // this starts and the end and counts in
+
+// console.log(airline.slice(1, -1)); // this takes off the first and last letter
+
+// const checkMiddleSeat = function(seat) {
+//   // 11A, 11B, 11C -- 11D, 11E, 11F, B and E are middle seats
+//   const s = seat.slice(seat.indexOf(-1));
+//   if(s == 'B' || s == 'E') {
+//     console.log('You got a middle seat!');
+//   } else {
+//     console.log('You got lucky');
+//   }
+// }
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('7E');
+
+// // considered an object
+// console.log(new String('Brax'));
+// console.log(typeof new String('Brax'));
+
+// // makes it a string again when methods are called on it
+// console.log(new String('Brax'));
+// console.log(typeof new String('Braxt').slice(-1));
+// console.log(typeof new String('Brax').toLowerCase());
+
 // ----------------------------------------------------------
 
 // // MAP ITERATION
