@@ -55,57 +55,57 @@ const restaurant = {
 
 // ---------------------------------------------------------
 
-// // WORKING WITH STRINGS Part 2
+// // WORKING WITH STRINGS Part 3
 
-// Split and Join
-console.log('a+very+nice+string'.split('+'));
-console.log('Brax McClellan'.split(' '));
+// // Split and Join
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Brax McClellan'.split(' '));
 
-const [firstName, lastName] = 'Brax McClellan'.split(' ');
-console.log(firstName, lastName);
+// const [firstName, lastName] = 'Brax McClellan'.split(' ');
+// console.log(firstName, lastName);
 
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName);
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
 
-const capitalizeName = function(name) {
-  const names = name.split(' ');
-  console.log(names);
+// const capitalizeName = function(name) {
+//   const names = name.split(' ');
+//   console.log(names);
 
-  const namesUpper = [];
-  for(const n of names) {
-    // namesUpper.push(n[0].toUpperCase() + n.slice(1))
-    namesUpper.push(n.replace(n[0], n[0].toUpperCase()))
-  }
-  console.log(namesUpper.join(' '));
-}
-capitalizeName('jessica ann smith davis');
-capitalizeName('brax mcclellan')
+//   const namesUpper = [];
+//   for(const n of names) {
+//     // namesUpper.push(n[0].toUpperCase() + n.slice(1))
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()))
+//   }
+//   console.log(namesUpper.join(' '));
+// }
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('brax mcclellan')
 
-//Padding
-const message = 'Go to gate 23';
-console.log(message.padStart(25, '$')); // first arg is string length, next value is the char that it uses for padding
-console.log(message.padEnd(25, '$')); 
-console.log('Brax'.padStart(20, '.'));
-console.log('Brax'. padStart(20, '.').padEnd(30, '.')); // pads it to 20 char count and then it does 10 after the string for padEnd difference
+// //Padding
+// const message = 'Go to gate 23';
+// console.log(message.padStart(25, '$')); // first arg is string length, next value is the char that it uses for padding
+// console.log(message.padEnd(25, '$')); 
+// console.log('Brax'.padStart(20, '.'));
+// console.log('Brax'. padStart(20, '.').padEnd(30, '.')); // pads it to 20 char count and then it does 10 after the string for padEnd difference
 
-const maskCreditCard = function(number) {
-  const str = number + '';
-  const last = str.slice(-4)
-  console.log(last.padStart(16, '*'));
-}
-maskCreditCard(1234123412341234);
-maskCreditCard('1234123412341234');
+// const maskCreditCard = function(number) {
+//   const str = number + '';
+//   const last = str.slice(-4)
+//   console.log(last.padStart(16, '*'));
+// }
+// maskCreditCard(1234123412341234);
+// maskCreditCard('1234123412341234');
 
-// Repeat
-const message2 = 'Bad weather... All departures delayed...';
-console.log(message2.repeat(5));
+// // Repeat
+// const message2 = 'Bad weather... All departures delayed...';
+// console.log(message2.repeat(5));
 
-const planesInLine = function(n) {
-  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
-}
-planesInLine(5);
-planesInLine(2);
-planesInLine(10);
+// const planesInLine = function(n) {
+//   console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+// }
+// planesInLine(5);
+// planesInLine(2);
+// planesInLine(10);
 
 // ---------------------------------------------------------
 
@@ -632,6 +632,32 @@ const game = {
     team2: 6.5,
   },
 };
+
+// // CODING CHALLENGE 4\
+
+// making snake_case camelCase
+
+// underscore_case
+//  first_name
+// Some_Variable
+//   calculate_AGE
+// delayed_departure
+
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+
+document.querySelector('button').addEventListener('click', function() {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+
+  for(const [i, row] of rows.entries()) {
+    const [first, second] = row.trim().toLowerCase().split('_')
+    const output = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
+    console.log(`${output.padEnd(20)} ${'#'.repeat(i + 1)}`);
+  }
+})
 
 // // CODING CHALLENGE 3
 
