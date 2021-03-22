@@ -52,73 +52,130 @@ const restaurant = {
     console.log(`The main ingredient is ${mainIngredient}, the other ingredient(s) are ${otherIngredients}`);
   }
 };
+
 // ---------------------------------------------------------
 
-const airline = 'TAP Air Portugal';
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
+// // WORKING WITH STRINGS Part 2
 
-//Fix capitalization in name
-const passenger = 'bRaXtoN'; // should be Braxton
-const passengerLower = passenger.toLowerCase();
-const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1)
-console.log(passengerCorrect);
+// Split and Join
+console.log('a+very+nice+string'.split('+'));
+console.log('Brax McClellan'.split(' '));
 
-function fixName(name) {
-  let lower = name.toLowerCase();
-  let fixed = name[0].toUpperCase() + lower.slice(1);
-  console.log(fixed);
-}
-fixName('braXtoN')
-fixName('dianA')
-fixName('mCcLeLlAn')
+const [firstName, lastName] = 'Brax McClellan'.split(' ');
+console.log(firstName, lastName);
 
-// Comparing email
-const email = 'hello@brax.io';
-const loginEmail = '   Hello@Brax.Io \n';
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
 
-const lowerEmail = loginEmail.toLowerCase();
-const trimmedEmail = lowerEmail.trim() // takes out spaces or dead space
+const capitalizeName = function(name) {
+  const names = name.split(' ');
+  console.log(names);
 
-const fixedEmail = loginEmail.toLowerCase().trim();
-
-console.log(fixedEmail);
-console.log(email === fixedEmail);
-
-// replacing in strings
-const priceGB = '288,97£';
-const priceUS = priceGB.replace('£', '$').replace(',', '.');
-console.log(priceUS);
-
-const announcement = 'All passengers come to boarding door 23, boarding door 23!'
-
-console.log(announcement.replace('door', 'gate'));
-// console.log(announcement.replaceAll('door', 'gate'));
-console.log(announcement.replace(/door/g, 'gate')); // this uses general expression, the g stands for 'global'
-
-// Booleans
-const plane = 'Airbus A320neo';
-console.log(plane.includes('A320')); // true
-console.log(plane.includes('Boeing')); // false
-console.log(plane.startsWith('Z')); // false
-console.log(plane.startsWith('Air')); // true
-
-if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
-  console.log('Part of the NEW Airbus family');
-}
-
-// Practice exercise
-const checkBags = function(items) {
-  const baggage = items.toLowerCase();
-  if(baggage.includes('knife') || baggage.includes('gun')) {
-    console.log('You cannot fly sorry!');
-  } else {
-    console.log('You may board the plane');
+  const namesUpper = [];
+  for(const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1))
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()))
   }
+  console.log(namesUpper.join(' '));
 }
-checkBags('I have a laptop, some food, and a pocket KNIFE');
-checkBags('I have some socks and a cemera');
-checkBags('Got some snacks and a gun for protection');
+capitalizeName('jessica ann smith davis');
+capitalizeName('brax mcclellan')
+
+//Padding
+const message = 'Go to gate 23';
+console.log(message.padStart(25, '$')); // first arg is string length, next value is the char that it uses for padding
+console.log(message.padEnd(25, '$')); 
+console.log('Brax'.padStart(20, '.'));
+console.log('Brax'. padStart(20, '.').padEnd(30, '.')); // pads it to 20 char count and then it does 10 after the string for padEnd difference
+
+const maskCreditCard = function(number) {
+  const str = number + '';
+  const last = str.slice(-4)
+  console.log(last.padStart(16, '*'));
+}
+maskCreditCard(1234123412341234);
+maskCreditCard('1234123412341234');
+
+// Repeat
+const message2 = 'Bad weather... All departures delayed...';
+console.log(message2.repeat(5));
+
+const planesInLine = function(n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+}
+planesInLine(5);
+planesInLine(2);
+planesInLine(10);
+
+// ---------------------------------------------------------
+
+// // WORKING WITH STRINGS Part 2
+
+// const airline = 'TAP Air Portugal';
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+
+// //Fix capitalization in name
+// const passenger = 'bRaXtoN'; // should be Braxton
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1)
+// console.log(passengerCorrect);
+
+// function fixName(name) {
+//   let lower = name.toLowerCase();
+//   let fixed = name[0].toUpperCase() + lower.slice(1);
+//   console.log(fixed);
+// }
+// fixName('braXtoN')
+// fixName('dianA')
+// fixName('mCcLeLlAn')
+
+// // Comparing email
+// const email = 'hello@brax.io';
+// const loginEmail = '   Hello@Brax.Io \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim() // takes out spaces or dead space
+
+// const fixedEmail = loginEmail.toLowerCase().trim();
+
+// console.log(fixedEmail);
+// console.log(email === fixedEmail);
+
+// // replacing in strings
+// const priceGB = '288,97£';
+// const priceUS = priceGB.replace('£', '$').replace(',', '.');
+// console.log(priceUS);
+
+// const announcement = 'All passengers come to boarding door 23, boarding door 23!'
+
+// console.log(announcement.replace('door', 'gate'));
+// // console.log(announcement.replaceAll('door', 'gate'));
+// console.log(announcement.replace(/door/g, 'gate')); // this uses general expression, the g stands for 'global'
+
+// // Booleans
+// const plane = 'Airbus A320neo';
+// console.log(plane.includes('A320')); // true
+// console.log(plane.includes('Boeing')); // false
+// console.log(plane.startsWith('Z')); // false
+// console.log(plane.startsWith('Air')); // true
+
+// if(plane.startsWith('Airbus') && plane.endsWith('neo')) {
+//   console.log('Part of the NEW Airbus family');
+// }
+
+// // Practice exercise
+// const checkBags = function(items) {
+//   const baggage = items.toLowerCase();
+//   if(baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log('You cannot fly sorry!');
+//   } else {
+//     console.log('You may board the plane');
+//   }
+// }
+// checkBags('I have a laptop, some food, and a pocket KNIFE');
+// checkBags('I have some socks and a cemera');
+// checkBags('Got some snacks and a gun for protection');
 
 // ----------------------------------------------------------
 // // WORKING WITH STRINGS Part 1
